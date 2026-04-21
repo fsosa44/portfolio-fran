@@ -10,6 +10,7 @@ import { translations, type Lang } from "./i18n";
 
 function App() {
   const [lang, setLang] = useState<Lang>("es");
+  const [menuOpen, setMenuOpen] = useState(false);
   const t = translations[lang];
 
   return (
@@ -58,13 +59,65 @@ function App() {
             <a
               href={lang === "es" ? "/CV FRANCISCO SOSA.pdf" : "/RESUME-FRANCISCO SOSA.pdf"}
               download
-              className="bg-primary text-on-primary px-6 py-2 rounded-xl font-bold font-headline scale-95 active:scale-90 transition-transform"
+              className="hidden md:inline-block bg-primary text-on-primary px-6 py-2 rounded-xl font-bold font-headline scale-95 active:scale-90 transition-transform"
             >
               {t.nav.resume}
             </a>
+            {/* Mobile hamburger */}
+            <button
+              onClick={() => setMenuOpen(!menuOpen)}
+              className="md:hidden flex flex-col gap-1.5 p-2"
+              aria-label="Toggle menu"
+            >
+              <span className={`block w-6 h-0.5 bg-on-surface transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
+              <span className={`block w-6 h-0.5 bg-on-surface transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`} />
+              <span className={`block w-6 h-0.5 bg-on-surface transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
+            </button>
           </div>
         </div>
       </nav>
+
+      {/* Mobile Menu */}
+      {menuOpen && (
+        <div className="fixed inset-0 z-40 bg-[#060e20]/95 backdrop-blur-lg pt-24 px-8 flex flex-col gap-6 md:hidden">
+          <a
+            className="text-on-surface font-headline text-2xl font-bold tracking-tight hover:text-primary transition-colors"
+            href="#work"
+            onClick={() => setMenuOpen(false)}
+          >
+            {t.nav.projects}
+          </a>
+          <a
+            className="text-on-surface font-headline text-2xl font-bold tracking-tight hover:text-primary transition-colors"
+            href="#about"
+            onClick={() => setMenuOpen(false)}
+          >
+            {t.nav.about}
+          </a>
+          <a
+            className="text-on-surface font-headline text-2xl font-bold tracking-tight hover:text-primary transition-colors"
+            href="#tech"
+            onClick={() => setMenuOpen(false)}
+          >
+            {t.nav.tech}
+          </a>
+          <a
+            className="text-on-surface font-headline text-2xl font-bold tracking-tight hover:text-primary transition-colors"
+            href="#contact"
+            onClick={() => setMenuOpen(false)}
+          >
+            {t.nav.contact}
+          </a>
+          <a
+            href={lang === "es" ? "/CV FRANCISCO SOSA.pdf" : "/RESUME-FRANCISCO SOSA.pdf"}
+            download
+            className="bg-primary text-on-primary px-6 py-3 rounded-xl font-bold font-headline text-center mt-4"
+            onClick={() => setMenuOpen(false)}
+          >
+            {t.nav.resume}
+          </a>
+        </div>
+      )}
 
       <main>
         {/* Hero Section */}
@@ -86,7 +139,7 @@ function App() {
           <p className="max-w-2xl text-on-surface-variant text-lg md:text-xl leading-relaxed mb-12 font-body">
             {t.hero.bio}
           </p>
-          <div className="flex flex-col md:flex-row gap-6">
+          <div className="flex flex-col md:flex-row gap-6 mb-16 md:mb-0">
             <a
               className="hero-gradient text-on-primary px-10 py-4 rounded-xl font-bold text-lg shadow-[0_20px_40px_rgba(0,0,0,0.4)] transition-transform hover:scale-105 active:scale-95"
               href="#work"
