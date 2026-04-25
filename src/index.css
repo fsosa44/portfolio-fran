@@ -1,68 +1,59 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary-dim: #8a95ff;
-  --color-primary-fixed-dim: #747fea;
-  --color-on-error: #490013;
-  --color-surface-container: #0a1836;
-  --color-surface-variant: #11244c;
-  --color-on-secondary: #3e3e52;
-  --color-on-tertiary-fixed: #4c2f52;
-  --color-primary-container: #3c47af;
-  --color-tertiary: #fedeff;
-  --color-inverse-on-surface: #4d556b;
-  --color-on-secondary-fixed-variant: #5a5a6f;
-  --color-secondary-fixed-dim: #d4d2eb;
-  --color-surface: #060e20;
-  --color-on-primary: #28329c;
-  --color-surface-dim: #060e20;
-  --color-inverse-surface: #faf8ff;
-  --color-on-tertiary-fixed-variant: #6a4b70;
-  --color-error-dim: #c44b5f;
-  --color-on-secondary-fixed: #3d3e51;
-  --color-outline: #6475a1;
-  --color-tertiary-container: #f5cdf9;
-  --color-on-primary-fixed: #000000;
-  --color-on-secondary-container: #bebdd5;
-  --color-surface-container-highest: #11244c;
-  --color-surface-container-high: #0f1e3f;
-  --color-error-container: #871c34;
+  --color-surface: #09090b;
+  --color-surface-dim: #050507;
+  --color-surface-container: #18181b;
+  --color-surface-container-high: #27272a;
+  --color-surface-container-highest: #3f3f46;
+  --color-surface-container-low: #0c0c0e;
   --color-surface-container-lowest: #000000;
-  --color-tertiary-fixed-dim: #e7bfea;
-  --color-on-primary-container: #e0e1ff;
-  --color-tertiary-dim: #e7bfea;
-  --color-on-error-container: #ff97a3;
-  --color-background: #060e20;
-  --color-secondary-dim: #b8b6cf;
-  --color-tertiary-fixed: #f5cdf9;
-  --color-secondary: #c6c4dd;
-  --color-on-primary-fixed-variant: #000979;
-  --color-secondary-fixed: #e2e0f9;
-  --color-on-surface: #dee5ff;
-  --color-inverse-primary: #4954bc;
-  --color-secondary-container: #393a4d;
-  --color-primary: #bdc2ff;
-  --color-outline-variant: #364770;
-  --color-surface-tint: #bdc2ff;
-  --color-on-tertiary: #694a6f;
-  --color-on-surface-variant: #99aad9;
-  --color-surface-container-low: #06122c;
-  --color-primary-fixed: #818cf8;
-  --color-surface-bright: #182b52;
-  --color-on-tertiary-container: #604266;
-  --color-on-background: #dee5ff;
-  --color-error: #f97386;
+  --color-surface-variant: #27272a;
+  --color-surface-bright: #27272a;
 
-  --font-headline: "Inter", sans-serif;
-  --font-body: "Manrope", sans-serif;
-  --font-label: "Inter", sans-serif;
+  --color-primary: #2563eb;
+  --color-primary-dim: #1d4ed8;
+  --color-primary-container: rgba(37, 99, 235, 0.12);
+  --color-primary-fixed: #3b82f6;
+  --color-primary-fixed-dim: #1e40af;
+
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #bfdbfe;
+  --color-on-primary-fixed: #000000;
+  --color-on-primary-fixed-variant: #1e3a8a;
+
+  --color-on-surface: #fafafa;
+  --color-on-surface-variant: #a1a1aa;
+  --color-on-background: #fafafa;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #fca5a5;
+
+  --color-outline: #27272a;
+  --color-outline-variant: #3f3f46;
+
+  --color-inverse-surface: #fafafa;
+  --color-inverse-on-surface: #18181b;
+  --color-inverse-primary: #60a5fa;
+
+  --color-secondary: #52525b;
+  --color-secondary-container: #27272a;
+  --color-on-secondary: #a1a1aa;
+  --color-on-secondary-container: #d4d4d8;
+
+  --color-error: #ef4444;
+  --color-error-dim: #dc2626;
+  --color-error-container: rgba(239, 68, 68, 0.12);
+
+  --font-headline: "Outfit", sans-serif;
+  --font-body: "Outfit", sans-serif;
+  --font-label: "Outfit", sans-serif;
 }
 
 body {
   margin: 0;
-  background-color: #060e20;
-  color: #dee5ff;
-  font-family: "Manrope", sans-serif;
+  background-color: #09090b;
+  color: #fafafa;
+  font-family: "Outfit", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -71,6 +62,25 @@ body {
   font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
 }
 
-.hero-gradient {
-  background: linear-gradient(135deg, #bdc2ff 0%, #3c47af 100%);
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
 }
+
+.glass-strong {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.spring-transition {
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.accent-glow {
+  box-shadow: 0 0 40px rgba(37, 99, 235, 0.15);
+}
+
